@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" style="scroll-behavior: smooth;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Filcast</title>
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(90deg, #e83e8c, #00eaff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    /* Gradient border with glow on hover */
+    .gradient-border {
+      border: 1.5px solid transparent;
+      border-image: linear-gradient(90deg, #e83e8c, #00eaff) 1;
+      transition: box-shadow 0.3s ease;
+    }
+    .gradient-border:hover {
+      box-shadow: 0 0 8px 2px rgba(232, 62, 140, 0.7), 0 0 8px 2px rgba(0, 234, 255, 0.7);
+    }
+    /* Disabled button style */
+    .disabled-button {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    /* Input placeholder lowercase */
+    ::placeholder {
+      text-transform: lowercase;
+    }
+    /* Scroll indicator animation */
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(8px);
+      }
+    }
+    .scroll-indicator {
+      animation: bounce 2s infinite;
+      color: #f5f5f5;
+      font-size: 24px;
+    }
+    /* Animated gradient text for logo */
+    .logo-text {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 3.75rem; /* text-6xl */
+      text-transform: lowercase;
+      background: linear-gradient(270deg, #00eaff, #f5f5f5, #e83e8c, #00eaff);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 15s ease infinite;
+      position: relative;
+      display: inline-block;
+    }
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    /* Subtle cursive morph effect using skew and scale animation */
+    .logo-text::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+      filter: blur(0.5px);
+      animation: morphShape 6s ease-in-out infinite;
+      z-index: -1;
+    }
+    @keyframes morphShape {
+      0%, 100% {
+        transform: skew(0deg) scale(1);
+      }
+      50% {
+        transform: skew(5deg, 2deg) scale(1.05);
+      }
+    }
+    /* Background textures container */
+    #background-textures {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    /* Shooting star style */
+    .shooting-star {
+      position: absolute;
+      width: 2px;
+      height: 80px;
+      background: linear-gradient(45deg, #e83e8c, #00eaff);
+      border-radius: 9999px;
+      opacity: 0.3;
+      filter: drop-shadow(0 0 6px #e83e8c);
+      animation: shootingStarAnim 4s linear infinite;
+    }
+    @keyframes shootingStarAnim {
+      0% {
+        transform: translateX(-100px) translateY(0) rotate(45deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(110vw) translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+    /* Soft wave style */
+    .soft-wave {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(232, 62, 140, 0.15), transparent 70%);
+      animation: wavePulse 6s ease-in-out infinite;
+      filter: blur(8px);
+    }
+    @keyframes wavePulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+      }
+    }
+  </style>
+</head>
+<body class="bg-black font-sans text-white min-h-screen scroll-smooth relative">
+  <div id="background-textures" aria-hidden="true">
+    <!-- Shooting stars -->
+    <div class="shooting-star" style="top: 10%; left: -100px; animation-delay: 0s;"></div>
+    <div class="shooting-star" style="top: 30%; left: -150px; animation-delay: 1.5s;"></div>
+    <div class="shooting-star" style="top: 50%; left: -120px; animation-delay: 3s;"></div>
+    <!-- Soft waves -->
+    <div class="soft-wave" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="soft-wave" style="top: 70%; left: 80%; animation-delay: 3s;"></div>
+  </div>
+  <!-- Main Section -->
+  <section id="main" class="h-screen flex flex-col items-center justify-center space-y-6 px-6 text-center relative z-10">
+    <!-- Filcast Logo with animated gradient and cursive morph effect -->
+    <h1 class="logo-text" data-text="filcast">filcast</h1>
+    <!-- Tagline -->
+    <p class="text-white text-xl font-semibold lowercase max-w-md">creative connections, redefined.</p>
+    <!-- Scroll Indicator -->
+    <a href="#mission" class="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer hover:opacity-80 transition-all duration-300 hover:-translate-y-1">
+      <i class="fas fa-chevron-down scroll-indicator"></i>
+    </a>
+  </section>
+
+  <!-- Mission Section -->
+  <section id="mission" class="h-screen flex items-center justify-center px-6 text-center relative">
+    <h2 class="gradient-text font-bold text-[36px] leading-tight tracking-tight font-inter lowercase max-w-4xl">
+      at filcast, we believe meaningful connections start with creativity. we’re building a space where real stories, art, and moments flow without noise or judgment. join the new era of social connection.
+    </h2>
+    <!-- Scroll Indicator -->
+    <a href="#newsletter" class="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer hover:opacity-80 transition-all duration-300 hover:-translate-y-1">
+      <i class="fas fa-chevron-down scroll-indicator"></i>
+    </a>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section id="newsletter" class="h-screen flex flex-col items-center justify-center space-y-8 px-6 text-center">
+    <p class="text-white text-lg font-semibold lowercase">stay updated with filcast</p>
+    <form class="w-full max-w-md flex flex-col space-y-4" novalidate>
+      <label for="name" class="sr-only">name</label>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        placeholder="name"
+        class="w-full bg-transparent border border-gray-400 text-gray-400 rounded-md px-4 py-3 text-[18px] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent lowercase"
+        autocomplete="name"
+        required
+      />
+      <label for="email" class="sr-only">email</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        placeholder="email"
+        class="w-full bg-transparent border border-gray-400 text-gray-400 rounded-md px-4 py-3 text-[18px] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent lowercase"
+        autocomplete="email"
+        required
+      />
+      <button
+        type="submit"
+        class="gradient-border text-white py-3 rounded-md font-semibold text-[18px] lowercase tracking-wide hover:gradient-border hover:shadow-lg transition-shadow duration-300 hover:text-[#e83e8c]"
+      >
+        subscribe
+      </button>
+    </form>
+    <button
+      type="button"
+      disabled
+      class="gradient-border disabled-button text-white py-3 rounded-md font-semibold text-[18px] lowercase tracking-wide cursor-not-allowed max-w-md w-full"
+    >
+      download
+    </button>
+  </section>
+</body>
+</html>
