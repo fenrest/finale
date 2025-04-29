@@ -64,6 +64,7 @@
       animation: gradientShift 15s ease infinite;
       position: relative;
       display: inline-block;
+      letter-spacing: -0.05em; /* Reduced character spacing */
     }
     @keyframes gradientShift {
       0% {
@@ -98,73 +99,9 @@
         transform: skew(5deg, 2deg) scale(1.05);
       }
     }
-    /* Background textures container */
-    #background-textures {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-    /* Shooting star style */
-    .shooting-star {
-      position: absolute;
-      width: 2px;
-      height: 80px;
-      background: linear-gradient(45deg, #e83e8c, #00eaff);
-      border-radius: 9999px;
-      opacity: 0.3;
-      filter: drop-shadow(0 0 6px #e83e8c);
-      animation: shootingStarAnim 4s linear infinite;
-    }
-    @keyframes shootingStarAnim {
-      0% {
-        transform: translateX(-100px) translateY(0) rotate(45deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateX(110vw) translateY(100vh) rotate(45deg);
-        opacity: 0;
-      }
-    }
-    /* Soft wave style */
-    .soft-wave {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle at center, rgba(232, 62, 140, 0.15), transparent 70%);
-      animation: wavePulse 6s ease-in-out infinite;
-      filter: blur(8px);
-    }
-    @keyframes wavePulse {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 0.3;
-      }
-      50% {
-        transform: scale(1.2);
-        opacity: 0.5;
-      }
-    }
   </style>
 </head>
 <body class="bg-black font-sans text-white min-h-screen scroll-smooth relative">
-  <div id="background-textures" aria-hidden="true">
-    <!-- Shooting stars -->
-    <div class="shooting-star" style="top: 10%; left: -100px; animation-delay: 0s;"></div>
-    <div class="shooting-star" style="top: 30%; left: -150px; animation-delay: 1.5s;"></div>
-    <div class="shooting-star" style="top: 50%; left: -120px; animation-delay: 3s;"></div>
-    <!-- Soft waves -->
-    <div class="soft-wave" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
-    <div class="soft-wave" style="top: 70%; left: 80%; animation-delay: 3s;"></div>
-  </div>
   <!-- Main Section -->
   <section id="main" class="h-screen flex flex-col items-center justify-center space-y-6 px-6 text-center relative z-10">
     <!-- Filcast Logo with animated gradient and cursive morph effect -->
@@ -180,7 +117,7 @@
   <!-- Mission Section -->
   <section id="mission" class="h-screen flex items-center justify-center px-6 text-center relative">
     <h2 class="gradient-text font-bold text-[36px] leading-tight tracking-tight font-inter lowercase max-w-4xl">
-      at filcast, we believe meaningful connections start with creativity. we’re building a space where real stories, art, and moments flow without noise or judgment. join the new era of social connection.
+      at filcast, we believe meaningful connections start with creativity. we're building a space where real stories, art, and moments flow without noise or judgment. join the new era of social connection.
     </h2>
     <!-- Scroll Indicator -->
     <a href="#newsletter" class="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer hover:opacity-80 transition-all duration-300 hover:-translate-y-1">
